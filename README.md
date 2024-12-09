@@ -52,3 +52,34 @@ I proceeded with scaling the data to standardize the values, ensuring that all f
 
 Finally, I split the dataset into three parts: **training (70%), validation (15%), and testing (15%)**.
 
+## Build XGBoost Model
+
+### Hyperparameter Tunning
+
+The process started with setting the initial hyperparameters: n_estimators = 300, max_depth = 1, and learning_rate = 0.1. To optimize the model, I plotted the loss curves for different values of reg_lambda in order to identify the most suitable value for this hyperparameter.
+
+From the plot, it was observed that the training loss gradually increased and reached its lowest point at reg_lambda = 0.1. For the validation loss, it increased from 0.1 to 0.4, then decreased to 0.8, and finally increased again. The lowest loss was observed at reg_lambda = 0.1, so I decided to choose reg_lambda = 0.1 for further tuning of the model.
+
+With the parameters n_estimators = 300, reg_lambda = 0.1, and learning_rate = 0.1, I then plotted the loss curves for different values of max_depth to find the optimal value for this parameter.
+
+The results showed that for smaller values of max_depth (such as max_depth = 1), the training loss was high, indicating that the model was too simple to capture the patterns in the data. As max_depth increased to 3, the training loss decreased significantly. The loss continued to decrease and almost plateaued from max_depth = 5, showing that the model was learning effectively from the training data. For max_depth > 7, the training loss remained very low, indicating that the model had effectively learned the details of the training data.
+
+For the validation loss, it decreased sharply from max_depth = 1 to 3, which indicated an improvement in the model's performance. This showed that increasing the depth helped the model learn better and reduced underfitting. At max_depth = 5, the validation loss reached its lowest point, indicating optimal performance on the validation set. When max_depth was increased beyond 5, the validation loss started increasing, showing signs of overfitting as the model began to memorize the training data and lost its ability to generalize. Therefore, max_depth = 5 was selected as the optimal depth for the model.
+
+With n_estimators = 300, reg_lambda = 0.1, and max_depth = 5, I then plotted the loss curves for different values of learning_rate to select the most appropriate value for this parameter.
+
+The plot showed that both training and validation losses decreased sharply from learning_rate = 0 to 0.05. As the learning rate continued to increase, the training loss continued to decrease, but the validation loss started to increase, indicating that the model was beginning to overfit. Therefore, I chose learning_rate = 0.05 to continue fine-tuning the model.
+
+With the final hyperparameters set to reg_lambda = 0.1, max_depth = 5, and learning_rate = 0.05, I then plotted the loss curves for different values of n_estimators to determine the best value for this parameter.
+
+The plot showed that as n_estimators increased from 100 to 300, both training and validation losses decreased. However, when n_estimators was increased further, the training loss continued to decrease while the validation loss started to increase. Based on this, I selected n_estimators = 300 as the optimal value for the model.
+
+After finding the optimal hyperparameters, I used n_estimators = 300, reg_lambda = 0.1, max_depth = 5, and learning_rate = 0.05 to train the model and evaluate its performance on the test set.
+
+### Result
+
+The plot showed that the training loss decreased consistently and quickly in the early epochs (epochs 0-50) before slowing down and converging at a very low value, indicating that the model had learned well from the training data. This suggests that the model was effectively adjusting its parameters to reduce errors on the training data.
+
+The validation loss followed a similar trend to the training loss and also converged at a very low value. The validation loss was not significantly higher than the training loss, which suggests that the model generalized well to the unseen data and did not suffer from overfitting.
+
+
