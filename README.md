@@ -126,4 +126,8 @@ The validation loss followed a similar trend to the training loss and also conve
 
 When evaluated on the test set, the accuracy achieved is 98.13%. With this level of accuracy, the model is performing very well. This indicates that the model has learned the important features from the data without overfitting. This result meets the high accuracy requirement for classifying customers for loan approval.
 
-The model's performance was further evaluated using the ROC curve and the area under the curve (AUC). As shown in Figure 4.18, the model has an AUC value close to 1, demonstrating excellent capability in classifying customers as eligible or not for a loan. The ROC curve is close to the top-left corner (high True Positive Rate and low False Positive Rate), indicating that the model is very effective at detecting true positives. At the same time, the number of false positives is very low, which helps minimize losses when approving loans for customers who are not financially eligible.
+The model's performance was further evaluated using the ROC curve and the area under the curve (AUC). The model has an AUC value close to 1, demonstrating excellent capability in classifying customers as eligible or not for a loan. The ROC curve is close to the top-left corner (high True Positive Rate and low False Positive Rate), indicating that the model is very effective at detecting true positives. At the same time, the number of false positives is very low, which helps minimize losses when approving loans for customers who are not financially eligible.
+
+<div align="center">
+  <img src="Image/ROC.png" alt="Heatmap" />
+</div>
