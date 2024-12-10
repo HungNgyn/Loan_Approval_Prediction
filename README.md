@@ -113,7 +113,7 @@ The plot showed that as n_estimators increased from 100 to 300, both training an
 
 After finding the optimal hyperparameters, I used n_estimators = 300, reg_lambda = 0.1, max_depth = 5, and learning_rate = 0.05 to train the model and evaluate its performance on the test set.
 
-### Result
+## Result
 
 The plot showed that the training loss decreased consistently and quickly in the early epochs (epochs 0-50) before slowing down and converging at a very low value, indicating that the model had learned well from the training data. This suggests that the model was effectively adjusting its parameters to reduce errors on the training data.
 
@@ -124,9 +124,9 @@ The plot showed that the training loss decreased consistently and quickly in the
 The validation loss followed a similar trend to the training loss and also converged at a very low value. The validation loss was not significantly higher than the training loss, which suggests that the model generalized well to the unseen data and did not suffer from overfitting.
 
 
-When evaluated on the test set, the accuracy achieved is 98.13%. With this level of accuracy, the model is performing very well. This indicates that the model has learned the important features from the data without overfitting. This result meets the high accuracy requirement for classifying customers for loan approval.
+When evaluated **on the test set, the accuracy achieved is 98.13%**. With this level of accuracy, the model is performing very well. This indicates that the model has learned the important features from the data without overfitting. This result meets the high accuracy requirement for classifying customers for loan approval.
 
-The model's performance was further evaluated using the ROC curve and the area under the curve (AUC). The model has an AUC value close to 1, demonstrating excellent capability in classifying customers as eligible or not for a loan. The ROC curve is close to the top-left corner (high True Positive Rate and low False Positive Rate), indicating that the model is very effective at detecting true positives. At the same time, the number of false positives is very low, which helps minimize losses when approving loans for customers who are not financially eligible.
+The model's performance was further evaluated using the ROC curve and the area under the curve (AUC). **The model has an AUC value close to 1**, demonstrating excellent capability in classifying customers as eligible or not for a loan. The ROC curve is close to the top-left corner (high True Positive Rate and low False Positive Rate), indicating that the model is very effective at detecting true positives. At the same time, the number of false positives is very low, which helps minimize losses when approving loans for customers who are not financially eligible.
 
 <div align="center">
   <img src="Image/ROC.png" alt="Heatmap" />
