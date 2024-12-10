@@ -160,22 +160,31 @@ The model's performance was further evaluated using the ROC curve and the area u
   <img src="Image/ROC.png" alt="Heatmap" />
 </div>
 
-### Feature importance
+### Feature importances
 
-Key Features:
+<div align="center">
+  <img src="Image/Importance.png" alt="Heatmap" />
+</div>
+
+**Key Features:**
 
 - CIBIL Score is the most important feature, contributing over 60% to the model's decisions
 - Loan Term contributes around 20%, showing its significant role in assessing repayment risk.
-Less Significant Features:
+
+**Less Significant Features:**
 
 - Loan Amount, Income Per Annum, and various asset values (luxury, residential, commercial, and bank assets) have very low importance, contributing minimally to the model's predictions. 
 
-Insights:
+**Insights:**
 
 - The heavy reliance on the CIBIL score highlights the critical role of maintaining good credit health for loan approval.
 - The Loan Term's influence suggests that lenders may assess repayment risk based on the duration of the loan, preferring shorter or medium terms to mitigate potential defaults.
 
-Recommendation:
+**Recommendation:**
 
 - Borrowers should focus on improving their CIBIL score to increase approval chances.
 - Lenders could explore alternative features to further refine their decision-making process, especially for edge cases where the CIBIL score alone may not fully explain loan outcomes.
+
+# Conclusion
+
+This project successfully applied the XGBoost algorithm to predict loan approval, achieving an impressive accuracy of 98.13%. Through careful hyperparameter tuning and feature selection, the model was able to effectively capture key factors influencing loan eligibility. The CIBIL score emerged as the most important feature, highlighting its critical role in the approval process. Loan term also proved significant, while other variables had less impact. The results emphasize the importance of maintaining a good credit score for borrowers and suggest that lenders could refine their decision-making by incorporating additional factors. Overall, this project showcases the potential of machine learning to improve loan approval processes and support better financial decision-making.
