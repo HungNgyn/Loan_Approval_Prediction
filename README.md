@@ -42,6 +42,34 @@ Next, I focused on handling the categorical variables, which required encoding t
   <img src="Image/Encoding.png" alt="Encoding" />
 </div>
 
+## EDA
+
+### Credit Score 
+
+<div align="center">
+  <img src="Image/Credit.png" alt="Encoding" />
+</div>
+
+A clear threshold exists around Credit Score = 600:
+- Below 600: Mostly Rejected (orange).
+- 600 and above: Mostly Approved (blue).
+
+Loans with a Credit Score below 550 are predominantly rejected; however, there are still several cases that are approved, indicating that other factors, such as income level, debt-to-income ratio, or loan purpose, may also play a significant role in the approval process.
+
+Loan amount shows no significant influence on loan status. Both approved and rejected loans are evenly distributed across different amounts.
+
+### Loan Term
+
+<div align="center">
+  <img src="Image/Loan_term.png" alt="Encoding" />
+</div>
+
+For approved loans, the loan term between **2 to 5 years sees the highest number of approvals**, peaking at 4 years. After this, approvals gradually decline until 7.5 years, followed by relatively stable fluctuations for longer terms. This suggests that shorter loan terms are more appealing to both borrowers and lenders, likely due to lower associated risks and faster repayment.
+
+For rejected loans, the lowest rejection counts occur for loan terms between 2 to 5 years, while rejections **peak at 6 years and 10 years**. Beyond 10 years, rejection rates remain stable. This indicates that medium-to-longer loan terms may face stricter approval criteria, possibly due to higher default risks or limited borrower qualifications.
+
+Insight: Borrowers seeking shorter loan terms are more likely to get approved, highlighting the lender's preference for reduced risk. Conversely, the increased rejection rates for medium-to-longer terms suggest that loan duration plays a significant role in the risk assessment process.
+
 ### Feature Selection
 
 I performed feature selection to identify which variables would be most useful for building the model. To do this, I first used a **Pearson correlation heatmap** to examine the relationships between the features. The heatmap revealed that variables like **no_of_dependents, self_employed, and education showed very weak correlations with other features**. Given their low correlation, I considered removing these features to reduce potential noise and improve model performance. 
@@ -131,3 +159,23 @@ The model's performance was further evaluated using the ROC curve and the area u
 <div align="center">
   <img src="Image/ROC.png" alt="Heatmap" />
 </div>
+
+### Feature importance
+
+Key Features:
+
+- CIBIL Score is the most important feature, contributing over 60% to the model's decisions
+- Loan Term contributes around 20%, showing its significant role in assessing repayment risk.
+Less Significant Features:
+
+- Loan Amount, Income Per Annum, and various asset values (luxury, residential, commercial, and bank assets) have very low importance, contributing minimally to the model's predictions. 
+
+Insights:
+
+- The heavy reliance on the CIBIL score highlights the critical role of maintaining good credit health for loan approval.
+- The Loan Term's influence suggests that lenders may assess repayment risk based on the duration of the loan, preferring shorter or medium terms to mitigate potential defaults.
+
+Recommendation:
+
+- Borrowers should focus on improving their CIBIL score to increase approval chances.
+- Lenders could explore alternative features to further refine their decision-making process, especially for edge cases where the CIBIL score alone may not fully explain loan outcomes.
